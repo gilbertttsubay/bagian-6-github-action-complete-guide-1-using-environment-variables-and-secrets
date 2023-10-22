@@ -36,7 +36,6 @@ jobs:
       - name: Output information
         run: |
           echo "MONGO_DB_USERNAME:${{ env.MONGO_USERNAME }}"
-          echo: my name is: ${{  }}
   deploy:
     needs: test
     runs-on: ubuntu-latest
