@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: echo "MONGO_DB_USERNAME:${{ env.MONGO_USERNAME }}"
+        run: echo "MONGO_DB_USERNAME:${{ env.MONGODB_USERNAME }}"
       - name: Get Code
         uses: actions/checkout@v3
       - name: Cache dependencies
