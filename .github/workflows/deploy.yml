@@ -5,9 +5,6 @@ on:
       - master
       - dev
 
-env:
-  sit: GILBERT_SUBAY
-
 
 jobs:
 #  let say ini adalah Build dan deploy sit job
