@@ -5,16 +5,19 @@ on:
       - master
       - dev
 
+env:
+  sit: GILBERT_SUBAY
 
 
 jobs:
 #  let say ini adalah Build dan deploy sit job
+
   test:
-    environment: testing
+    environment: sit
     env:
       MONGO_CLUSTER_ADDRESS: cluster0.1iwqjzm.mongodb.net
-      MONGO_USERNAME: gilbertsubay
-      MONGO_PASSWORD: sekolahpagi23175
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +37,9 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "MONGO_DB_USERNAME:${{ env.MONGO_USERNAME }}"
+        run: |
+          echo "MONGO_DB_USERNAME:${{ env.MONGO_USERNAME }}"
+          echo: my name is: ${{  }}
   deploy:
     needs: test
     runs-on: ubuntu-latest
